@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t scottiecrump/learn-docker-react -f Dockerfile.dev .
+
+script:
+  - docker run scottiecrump/learn-docker-react npm run test -- --coverage
